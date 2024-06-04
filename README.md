@@ -20,10 +20,10 @@ This project requires Node.js to run. If you do not have Node.js installed, you 
 In order to make requests to the API, you can use the [Postman Collection](dnd-beyond.postman_collection.json) provided in the repository
 
 #### Documentation
-You can check the OpenAPI 3 documentation in the [openapi.yaml](openapi.yaml) file and you can visualize it using [Swagger Editor](https://editor.swagger.io/). It has the schemas, paths, examples and expected responses of the API.
+You can check the OpenAPI 3 documentation in the [openapi.yaml](openapi.yaml) file, and you can visualize it using [Swagger Editor](https://editor.swagger.io/). It has the schemas, paths, examples and expected responses of the API.
 
 It looks like this:
-![OpenAPI](openApi3UIPreview.png)
+![OpenAPI 3](openApi3UIPreview.png)
 
 
 ---
