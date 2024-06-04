@@ -16,10 +16,19 @@ This project requires Node.js to run. If you do not have Node.js installed, you 
 
 `npm start`
 
-In order to make requests to the API, you can use the Postman collection provided in the repository: [dnd-beyond.postman_collection.json](dnd-beyond.postman_collection.json)
+#### Postman Collection
+In order to make requests to the API, you can use the [Postman Collection](dnd-beyond.postman_collection.json) provided in the repository
+
+#### Documentation
+You can check the OpenAPI 3 documentation in the [openapi.yaml](openapi.yaml) file and you can visualize it using [Swagger Editor](https://editor.swagger.io/). It has the schemas, paths, examples and expected responses of the API.
+
+It looks like this:
+![OpenAPI](openApi3UIPreview.png)
 
 
 ---
+
+
 ### Overview
 This task focuses on creating an API for managing a player character's Hit Points (HP) within our game. The API will enable clients to perform various operations related to HP, including dealing damage of different types, considering character resistances and immunities, healing, and adding temporary Hit Points. The task requires building a service that interacts with HP data provided in the `briv.json` file and persists throughout the application's lifetime.
 

@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info:
+  title: HP Controller API
+  version: 1.0.0
+paths:
+  /deal-damage:
+    post:
+      summary: Deals damage to a character
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                damage:
+                  type: number
+                  description: The amount of damage to deal
+                  example: 10
+                damageType:
+                  type: string
+                  description: The type of damage to deal
+                  example: "thunder"
+      responses:
+        '200':
+          description: Damage dealt successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterStatus'
+              examples:
+                characterAlive:
+                  summary: Character is alive after damage
+                  value:
+                    message: "Damage dealt"
+                    character:
+                      name: "Briv"
+                      hitPoints: 40
+                      temporaryHP: 0
+                characterDead:
+                  summary: Character is dead after damage
+                  value:
+                    message: "Damage dealt and character is dead"
+                    character:
+                      name: "Briv"
+                      hitPoints: 0
+                      temporaryHP: 0
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                invalidDamageType:
+                  summary: Invalid damage type
+                  value:
+                    message: "Invalid damage type"
+                characterDead:
+                  summary: Character is already dead
+                  value:
+                    message: "Character is already dead"
+  /heal:
+    post:
+      summary: Heals a character
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                healAmount:
+                  type: number
+                  description: The amount of health to restore
+                  example: 10
+      responses:
+        '200':
+          description: Character healed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterStatus'
+              examples:
+                characterHealed:
+                  summary: Character healed
+                  value:
+                    message: "Character healed"
+                    character:
+                      name: "Briv"
+                      hitPoints: 50
+                      temporaryHP: 0
+        '400':
+          description: Invalid request
+  /add-temp-hp:
+    post:
+      summary: Adds temporary hit points to a character
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tempHP:
+                  type: number
+                  description: The amount of temporary hit points to add
+                  example: 10
+      responses:
+        '200':
+          description: Temporary HP added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterStatus'
+              examples:
+                tempHPAdded:
+                  summary: Temporary HP added
+                  value:
+                    message: "Temporary HP added"
+                    character:
+                      name: "Briv"
+                      hitPoints: 50
+                      temporaryHP: 10
+        '400':
+          description: Invalid request
+components:
+  schemas:
+    CharacterStatus:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the character
+          example: "Briv"
+        hitPoints:
+          type: number
+          description: The character's current hit points
+          example: 50
+        temporaryHP:
+          type: number
+          description: The character's current temporary hit points
+          example: 0
