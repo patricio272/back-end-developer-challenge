@@ -7,6 +7,11 @@ const characterDataPath = path.join(__dirname, '../briv.json');
 let characterData = JSON.parse(fs.readFileSync(characterDataPath));
 characterData.temporaryHP = 0;
 
+const getCharacterStatus = () => {
+    const { name, hitPoints, temporaryHP } = characterData;
+    return { name, hitPoints, temporaryHP };
+}
+
 const dealDamage = async (req, res, next) => {
     try {
         const { damage, damageType } = req.body;
@@ -47,8 +52,7 @@ const dealDamage = async (req, res, next) => {
         characterData.hitPoints = Math.max(0, characterData.hitPoints - effectiveDamage);
 
         let message = `Damage dealt${characterData.hitPoints === 0 ? ' and character is dead' : ''}`;
-        const { name, hitPoints, temporaryHP } = characterData;
-        res.send({ message, character: name, hitPoints, temporaryHP });
+        res.send({ message, character: getCharacterStatus() });
     } catch (error) {
         next(error);
     }
@@ -60,8 +64,7 @@ const heal = async (req, res, next) => {
 
         characterData.hitPoints += healAmount;
 
-        const { name, hitPoints, temporaryHP } = characterData;
-        res.send({ message: 'Character healed', character: name, hitPoints, temporaryHP });
+        res.send({ message: 'Character healed', character: getCharacterStatus() });
     } catch (error) {
         next(error);
     }
@@ -73,8 +76,7 @@ const addTemporaryHP = async (req, res, next) => {
 
         characterData.temporaryHP = Math.max(tempHP, characterData.temporaryHP);
 
-        const { name, hitPoints, temporaryHP } = characterData;
-        res.send({ message: 'Temporary HP added', character: name, hitPoints, temporaryHP });
+        res.send({ message: 'Temporary HP added', character: getCharacterStatus() });
     } catch (error) {
         next(error);
     }
