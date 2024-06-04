@@ -1,5 +1,25 @@
 # DDB Back End Developer Challenge
 
+
+### Instructions
+
+#### Installation
+This project requires Node.js to run. If you do not have Node.js installed, you can download it from [here](https://nodejs.org/).
+
+`npm install`
+
+#### Running Unit Tests
+
+`npm test`
+
+#### Running the Application
+
+`npm start`
+
+In order to make requests to the API, you can use the Postman collection provided in the repository: [dnd-beyond.postman_collection.json](dnd-beyond.postman_collection.json)
+
+
+---
 ### Overview
 This task focuses on creating an API for managing a player character's Hit Points (HP) within our game. The API will enable clients to perform various operations related to HP, including dealing damage of different types, considering character resistances and immunities, healing, and adding temporary Hit Points. The task requires building a service that interacts with HP data provided in the `briv.json` file and persists throughout the application's lifetime.
 

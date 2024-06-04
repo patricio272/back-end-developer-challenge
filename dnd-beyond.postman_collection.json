@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "64e0de5d-9049-41c1-ad41-347a032c8359",
+		"name": "DND Beyond",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1069865"
+	},
+	"item": [
+		{
+			"name": "deal-damage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"damage\": 10,\r\n    \"damageType\": \"thunder\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/deal-damage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"deal-damage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "heal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"healAmount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/heal",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"heal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-temp-hp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempHP\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/add-temp-hp",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"add-temp-hp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
